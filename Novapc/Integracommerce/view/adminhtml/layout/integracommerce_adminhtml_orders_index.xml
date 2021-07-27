@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <head>
+    <action method="setTitle" translate="title">
+      <title>Integracommerce Manage Orders</title>
+    </action>
+  </head>
+  <body>
+    <referenceContainer name="content">
+      <block class="Novapc\Integracommerce\Block\Adminhtml\Order" template="Novapc_Integracommerce::integracommerce/order/order.phtml" name="order.grid">
+        <block class="Magento\Backend\Block\Store\Switcher" as="store_switcher" name="store_switcher">
+          <action method="setUseConfirm">
+            <arguments>
+              <argument xsi:type="string" name="params">0</argument>
+            </arguments>
+          </action>
+        </block>
+      </block>
+    </referenceContainer>
+  </body>
+</page>

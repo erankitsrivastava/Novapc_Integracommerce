@@ -1,0 +1,154 @@
+<?php
+/**
+ * Novapc Integracommerce
+ * 
+ * @category     Novapc
+ * @package      Novapc_Integracommerce
+ * @copyright    Copyright (c) 2016 Novapc (http://www.novapc.com.br/)
+ * @author       Novapc 
+ * @version      Release: 1.0.0 
+ */
+?>
+<?php 
+    list($integraOrder, $mageCustomer, $mageOrder) = $this->viewOrder();
+
+    $orderedItems = $mageOrder->getAllVisibleItems();
+
+    $product_collection = [];
+    foreach ($orderedItems as $key => $Item) {
+        $product_collection[] = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Catalog\Model\ProductFactory')->create()->load($Item->getData('product_id'));
+    }
+      
+?>
+
+
+<div class="content-header">
+    <h3 class="icon-head head-sales-order">
+    <?php echo __("Integracommerce Order #%1",$integraOrder->integra_id); ?></h3>
+</div>
+
+
+<div class="entry-edit" id="sales_order_view">
+    <div id="sales_order_view_tabs_order_info_content">
+        <div>
+            <div id="order-messages"></div>
+            <div class="box-left">
+            <!--Order Information-->
+                <div class="entry-edit">
+                    <div class="entry-edit-head">
+                        <h4 class="icon-head head-account"><?php echo __("Integracommerce Order"); ?></h4>
+                    </div>
+                    <div class="fieldset">
+                        <table cellspacing="0" class="form-list">
+                            <tbody>
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("integracommerce Order Id"); ?></strong></label></td>
+                                    <td class="value"><?php echo $integraOrder->integra_id;?></td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Status"); ?></strong></label></td>
+                                    <td class="value"><?php echo __($integraOrder->order_status);?></td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Store Name"); ?></strong></label></td>
+                                    <td class="value"><?php 
+                                        if (empty($integraOrder->store_name)) {
+                                            echo __("No data");
+                                        } else {
+                                            echo __($integraOrder->store_name);
+                                        }
+                                    ?></td>
+                                </tr>   
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Marketplace"); ?></strong></label></td>
+                                    <td class="value"><?php 
+                                        if (empty($integraOrder->marketplace_name)) {
+                                            echo __("No data");
+                                        } else {
+                                            echo __($integraOrder->marketplace_name);
+                                        }
+                                    ?></td>
+                                </tr>  
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Shipping Cost"); ?></strong></label></td>
+                                    <td class="value"><?php echo \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\App\Helper\AbstractHelper')->currency($integraOrder->total_freight, true, false);?></td>
+                                </tr>   
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Grand Total"); ?></strong></label></td>
+                                    <td class="value"><?php echo \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\App\Helper\AbstractHelper')->currency($integraOrder->total_amount, true, false);?></td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Carrier Name"); ?></strong></label></td>
+                                    <td class="value"><?php 
+                                        if (empty($integraOrder->shipped_carrier_name)) {
+                                            echo __("No data");   
+                                        } else {
+                                            echo __($integraOrder->shipped_carrier_name);
+                                        }
+                                    ?></td>
+                                </tr>                                                                                                           
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Shipping Tracking URL"); ?></strong></label></td>
+                                    <td class="value"><?php 
+                                        if (empty($integraOrder->shipping_tracking_url)) {
+                                            echo __("No data");
+                                        } else {
+                                            echo __($integraOrder->shipping_tracking_url);
+                                        }
+                                    ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label><strong><?php echo __("Erros:"); ?></strong></label></td>
+                                    <td class="value"><textarea id="error" name="error" class="textarea required" rows="2" cols="15" style="width: 333px; height: 115px;" ><?php echo $integraOrder->integra_error; ?></textarea><td class="value">
+                                </tr>
+                             </tbody>
+                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box-right">
+                <!--Account Information-->
+                <div class="entry-edit">
+                    <div class="entry-edit-head">
+                        <h4 class="icon-head head-account"><?php echo __("Magento Order"); ?></h4>
+                        <div class="tools"></div>
+                    </div>
+                    <div class="fieldset">
+                        <div class="hor-scroll">
+                            <table cellspacing="0" class="form-list">
+                                <tbody>
+                                    <tr>
+                                        <td class="label"><label><strong><?php echo __("Magento Order Id"); ?></strong></label></td>
+                                        <td class="value"><?php echo $mageOrder->increment_id;?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label><strong><?php echo __("Buyer"); ?></strong></label></td>
+                                        <td class="value"><?php echo $mageOrder->customer_firstname . ' ' . $mageOrder->customer_lastname;?></td>
+                                    </tr>   
+                                    <tr>
+                                        <td class="label"><label><strong><?php echo __("Email"); ?></strong></label></td>
+                                        <td class="value"><?php echo $mageOrder->customer_email;?></td>
+                                    </tr>                                        
+                                    <tr>
+                                        <td class="label"><label><strong><?php echo __("Status"); ?></strong></label></td>
+                                        <td class="value"><?php echo $mageOrder->getStatusLabel();?></td>
+                                    </tr>     
+                                    <tr>
+                                        <td class="label"><label><strong><?php echo __("Products"); ?></strong></label></td>
+                                        <?php foreach ($product_collection as $key => $_product): ?>
+                                        <td class="value"><?php echo $_product->name;?></td>
+                                        <?php endforeach; ?>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label><strong><?php echo __("Erros:"); ?></strong></label></td>
+                                        <td class="value"><textarea id="error" name="error" class="textarea required" rows="2" cols="15" style="width: 333px; height: 115px;" ><?php echo $integraOrder->mage_error; ?></textarea><td class="value">
+                                    </tr>
+                                 </tbody>
+                             </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="clear"></div>
+    </div>
+</div>  

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+  <acl>
+    <resources>
+      <resource id="Magento_Backend::admin">
+        <resource id="Magento_Backend::stores">
+          <resource id="Magento_Backend::stores_settings">
+            <resource id="Magento_Config::config">
+              <resource id="Novapc_Integracommerce::config_integracommerce" title="Integracommerce"/>
+            </resource>
+          </resource>
+        </resource>
+      </resource>
+      <resource id="Magento_Backend::admin">
+        <resource id="Novapc_Integracommerce::admin_integracommerce" title="Integracommerce" sortOrder="711">
+          <resource id="Novapc_Integracommerce::admin_integracommerce_integration" title="Exporta&#xE7;&#xE3;o" sortOrder="1"/>
+          <resource id="Novapc_Integracommerce::admin_integracommerce_orders" title="Gerenciar Pedidos" sortOrder="2"/>
+          <resource id="Novapc_Integracommerce::admin_integracommerce_report" title="Relat&#xF3;rio" sortOrder="3"/>
+          <resource id="Novapc_Integracommerce::admin_integracommerce_integracommerce_configuration" title="Configura&#xE7;&#xE3;o" sortOrder="4"/>
+        </resource>
+      </resource>
+    </resources>
+  </acl>
+</config>

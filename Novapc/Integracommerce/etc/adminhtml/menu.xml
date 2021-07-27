@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+  <menu>
+    <add id="Novapc_Integracommerce::integracommerce" resource="Novapc_Integracommerce::integracommerce" module="Novapc_Integracommerce" title="Integracommerce" sortOrder="711"/>
+    <add id="Novapc_Integracommerce::integration" resource="Novapc_Integracommerce::integration" module="Novapc_Integracommerce" title="Exporta&#xE7;&#xE3;o" sortOrder="1" action="integracommerce/adminhtml/integration" parent="Novapc_Integracommerce::integracommerce"/>
+    <add id="Novapc_Integracommerce::orders" resource="Novapc_Integracommerce::orders" module="Novapc_Integracommerce" title="Gerenciar Pedidos" sortOrder="2" action="integracommerce/adminhtml/orders" parent="Novapc_Integracommerce::integracommerce"/>
+    <add id="Magento_Reports:report" resource="Magento_Reports:report" module="Novapc_Integracommerce" title="Relat&#xF3;rio" sortOrder="3" action="integracommerce/adminhtml/report" parent="Novapc_Integracommerce::integracommerce"/>
+    <add id="Novapc_Integracommerce::integracommerce_configuration" resource="Novapc_Integracommerce::integracommerce_configuration" module="Novapc_Integracommerce" title="Configura&#xE7;&#xE3;o" sortOrder="4" action="system/config/edit/section/integracommerce/" parent="Novapc_Integracommerce::integracommerce"/>
+  </menu>
+</config>

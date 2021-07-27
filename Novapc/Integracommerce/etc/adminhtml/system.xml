@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+  <system>
+    <tab id="integracommerce" translate="label" sortOrder="799">
+      <label>Integracommerce</label>
+    </tab>
+    <section id="integracommerce" translate="label" sortOrder="50" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+      <label>Integracommece</label>
+      <tab>integracommerce</tab>
+      <resource>Novapc_Integracommerce::system_config</resource>
+      <group id="novapc_information_group" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Important informations</label>
+        <comment>
+                        
+                            &lt;div&gt;
+                                &lt;h3&gt;v. 2.0.0 Developed by&lt;br&gt; NovaPC - Tecnologia da Informação.&lt;/h3&gt;
+                                &lt;img src="http://novapc.com.br/images/logo.png" alt="Smiley face" height="200" width="300"&gt;
+                                &lt;br&gt;
+                                &lt;br&gt;
+                                Site: &lt;a href="http://www.novapc.com.br/" target="_blank"&gt;www.novapc.com.br/&lt;/a&gt;
+                                &lt;br&gt;
+                                E-mail: novapc@novapc.com.br
+                                &lt;br&gt;
+                                Telefone: 14-2104-5600
+                                &lt;br&gt;
+                                &lt;hr&gt;
+                                &lt;br&gt;
+                            &lt;/div&gt;
+                        
+                    </comment>
+      </group>
+      <group id="general" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>General</label>
+        <field id="environment" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Environment</label>
+          <comment>Select the environment you desire.</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Environment</source_model>
+        </field>
+        <field id="export_type" translate="label" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Tipo de Exportação</label>
+          <comment>Selecione o tipo de exportação desejada</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Export</source_model>
+        </field>
+        <field id="api_user" translate="label" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>API User</label>
+        </field>
+        <field id="api_password" translate="label" sortOrder="40" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>API Password</label>
+        </field>
+        <field id="configprod" translate="label" sortOrder="50" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Configurable Products</label>
+          <tooltip>Select if you wan't to create a Single Product in Integracommerce for all your product variations or a Product for every variation.</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Configprod</source_model>
+        </field>
+        <field id="attributes" translate="label" sortOrder="60" type="multiselect" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Product Attributes</label>
+          <comment>Selecione os atributos a serem exportados, utilize CTRL para selecionar vários e/ou desmarcar.</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Prodattr</source_model>
+          <can_be_empty>1</can_be_empty>
+        </field>
+        <field id="sku_attributes" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>SKU Attributes</label>
+          <frontend_model>Novapc\Integracommerce\Block\Adminhtml\Form\Field\Sku</frontend_model>
+          <backend_model>Novapc\Integracommerce\Model\System\Config\Backend\Sku</backend_model>
+        </field>
+        <field id="measure" translate="label" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Unidade de Medida</label>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Measure</source_model>
+        </field>
+        <field id="weight_unit" translate="label" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Unidade de Peso</label>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Weight</source_model>
+        </field>
+        <field id="sku_control" translate="label" sortOrder="90" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Controle de Produto</label>
+          <comment>Selecione o campo para o controle dos Produtos.</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Control</source_model>
+        </field>
+      </group>
+      <group id="attributes" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Mapeamento de Campos</label>
+        <field id="nbm_origin" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>NBM Origin</label>
+          <comment>Attribute corresponding to the NBM Origin.</comment>
+          <tooltip>Select the attribute that corresponds to nbm origin in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="nbm_number" translate="label" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>NBM Number</label>
+          <comment>Attribute corresponding to the NBM Number.</comment>
+          <tooltip>Select the attribute that corresponds to nbm number in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="warranty" translate="label" sortOrder="30" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Warranty</label>
+          <comment>Attribute corresponding to the Warranty.</comment>
+          <tooltip>Select the attribute that corresponds to warranty in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="brand" translate="label" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Brand</label>
+          <comment>Attribute corresponding to the Brand.</comment>
+          <tooltip>Select the attribute that corresponds to brand in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="height" translate="label" sortOrder="50" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Height</label>
+          <comment>Attribute corresponding to the Height.</comment>
+          <tooltip>Select the attribute that corresponds to height in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="width" translate="label" sortOrder="60" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Width</label>
+          <comment>Attribute corresponding to the width.</comment>
+          <tooltip>Select the attribute that corresponds to width in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="length" translate="label" sortOrder="70" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Length</label>
+          <comment>Attribute corresponding to the length.</comment>
+          <tooltip>Select the attribute that corresponds to length in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="weight" translate="label" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Weight</label>
+          <comment>Attribute corresponding to the weight.</comment>
+          <tooltip>Select the attribute that corresponds to weight in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="ean" translate="label" sortOrder="90" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Ean</label>
+          <comment>Attribute corresponding to the ean.</comment>
+          <tooltip>Select the attribute that corresponds to ean in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="ncm" translate="label" sortOrder="100" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Ncm</label>
+          <comment>Attribute corresponding to the ncm.</comment>
+          <tooltip>Select the attribute that corresponds to ncm in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="isbn" translate="label" sortOrder="110" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Isbn</label>
+          <comment>Attribute corresponding to the isbn.</comment>
+          <tooltip>Select the attribute that corresponds to isbn in Integracommerce</tooltip>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Attributes</source_model>
+          <backend_model>Novapc\Integracommerce\Model\Intgrattr</backend_model>
+        </field>
+        <field id="ierg" translate="label" sortOrder="120" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Inscrição Estadual</label>
+          <comment>Atributo correspondente a Inscrição Estadual.</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Customer</source_model>
+        </field>
+      </group>
+      <group id="order_status" translate="label" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Configuração de Pedidos</label>
+        <field id="invoice" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Gerar Fatura?</label>
+          <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="approved" translate="label" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Pedido Aprovado</label>
+          <comment>Selecione o status que representa o Aprovado em sua loja.</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Status</source_model>
+        </field>
+        <field id="nota_fiscal" translate="label" sortOrder="30" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Nota Fiscal</label>
+          <comment>Selecione o status em que serão inseridos os dados da Nota Fiscal no pedido.</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Status</source_model>
+        </field>
+        <field id="dados_rastreio" translate="label" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Dados de Rastreio</label>
+          <comment>Selecione o status em que serão inseridos os dados de rastreio no pedido.</comment>
+          <source_model>Novapc\Integracommerce\Model\System\Config\Source\Dropdown\Status</source_model>
+        </field>
+      </group>
+    </section>
+  </system>
+</config>
